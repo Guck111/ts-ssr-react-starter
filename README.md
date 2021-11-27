@@ -24,6 +24,6 @@ src
 
 # How to create production build
 
-You just need to run "npm run build:prod" 
+You just need to run "yarn build:prod" 
 It will create a dist folder and a server.js file will be created that will be used to deploy on the server.
 You can test it out by writing node dist/server.js
