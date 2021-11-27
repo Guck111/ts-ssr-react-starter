@@ -1,4 +1,3 @@
-const { ProvidePlugin } = require("webpack")
 const { merge } = require('webpack-merge');
 const baseConfig = require('../webpack.base.js');
 const webpackNodeExternals = require('webpack-node-externals');
@@ -28,12 +27,10 @@ const serverConfig = {
     ],
   },
   plugins: [
+    ...baseConfig.plugins,
     new MiniCssExtractPlugin({
       filename: '[name].[chunkhash:8].css',
       ignoreOrder: true,
-    }),
-    new ProvidePlugin({
-      React: 'react'
     })
   ],
   output: {

@@ -1,4 +1,3 @@
-const { ProvidePlugin } = require("webpack")
 const { merge } = require('webpack-merge');
 const baseConfig = require('../webpack.base.js');
 const webpackNodeExternals = require('webpack-node-externals');
@@ -28,10 +27,8 @@ const serverConfig = {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin(),
-    new ProvidePlugin({
-      React: 'react'
-    })
+    ...baseConfig.plugins,
+    new MiniCssExtractPlugin()
   ],
   output: {
     path: BUILD_DIR,

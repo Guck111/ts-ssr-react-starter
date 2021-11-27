@@ -8,7 +8,6 @@ const ROOT_DIR = path.resolve(__dirname, '../../');
 const resolvePath = (...args) => path.resolve(ROOT_DIR, ...args);
 const BUILD_DIR = resolvePath('dist');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { ProvidePlugin } = require("webpack")
 
 const clientConfig = {
   target: 'web',
@@ -40,6 +39,7 @@ const clientConfig = {
     assetModuleFilename: 'assets/[hash][ext][query]',
   },
   plugins: [
+    ...baseConfig.plugins,
     new MiniCssExtractPlugin({
       filename: '[name].[chunkhash:8].css',
       ignoreOrder: true,
@@ -48,10 +48,7 @@ const clientConfig = {
       outputAsset: false,
       writeToDisk: true,
       filename: `${BUILD_DIR}/loadable-stats.json`,
-    }),
-    new ProvidePlugin({
-			React: 'react'
-		})
+    })
     // Add any plugins required here for example: Bundle Analyzer, Copy Plugin etc
   ],
   optimization: {

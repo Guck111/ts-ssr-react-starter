@@ -1,4 +1,4 @@
-const { ProvidePlugin, HotModuleReplacementPlugin } = require("webpack")
+const { HotModuleReplacementPlugin } = require("webpack")
 const { merge } = require('webpack-merge');
 const path = require('path');
 const baseConfig = require('../webpack.base.js');
@@ -14,7 +14,7 @@ const clientConfig = {
   entry: {
     client: ['webpack-hot-middleware/client?reload=true&noInfo=true', './src/client/index.tsx'],
   },
-  devtool: 'inline-cheap-module-source-map',
+  devtool: 'eval-source-map',
   devServer: {
     contentBase: './dist',
     compress: true,
@@ -44,6 +44,7 @@ const clientConfig = {
     ],
   },
   plugins: [
+    ...baseConfig.plugins,
     new MiniCssExtractPlugin(),
     new HotModuleReplacementPlugin(),
     //loadable plugin will create all the chunks
@@ -51,10 +52,7 @@ const clientConfig = {
       outputAsset: false, // to avoid writing loadable-stats in the same output as client
       writeToDisk: true,
       filename: `${BUILD_DIR}/loadable-stats.json`,
-    }),
-    new ProvidePlugin({
-			React: 'react'
-		})
+    })
     // you can add additional plugins here like BundleAnalyzerPlugin, Copy Plugin etc.
   ],
   optimization: {
