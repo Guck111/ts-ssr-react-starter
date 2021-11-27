@@ -1,7 +1,7 @@
-# Getting Started with react-final-boilerplate
+# Getting Started with ts-ssr-react-starter
 
 1. Clone the code
-2. npm install
+2. yarn
 3. You are good to go with React Application. Open http://localhost:3000/ and you can see your changes 
 
 # Modules Installed
@@ -9,7 +9,7 @@
 1. babel
 2. webpack,
 3. loadable components - for code splitting
-4. styled components - for styling
+4. emotion - for styling
 5. react router config
 
 # File Structure
