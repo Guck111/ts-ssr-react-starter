@@ -1,7 +1,7 @@
-# Getting Started with react-final-boilerplate
+# Getting Started with TypeScript, SSR, React boilerplate
 
 1. Clone the code
-2. npm install
+2. `npm install` or `yarn`
 3. You are good to go with React Application. Open http://localhost:3000/ and you can see your changes 
 
 # Modules Installed
